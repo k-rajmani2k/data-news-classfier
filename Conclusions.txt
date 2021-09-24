@@ -1,0 +1,32 @@
+Prerequisites: 1) Proper internet connection, if running on Google colab
+			   2) Upload embeedings dictionary 100 dimension source locally before executing the file.
+				  Path to embedding source: /content/glove.6B.100d
+				  If executing locally, then change the path of above in the code as mentioned above.
+			   3) Input file (bbc.csv) is uploaded to raw server of github, directly accessing in the code.
+			      If executing locally, then input_file_path to be set to the path of input file
+
+
+Description of the code:
+               1) Total 7 blocks of code are there in ipynb file uploaded here.
+			   2) Block 1: Loss optimizer code for training_op
+				  Block 2: LSTM model class
+			      Block 3: GRU model class
+				  Block 4: Text cleaning APIs like normalization, noise removal, verb lamitization etc.
+			      Block 5: Data preprocessing and dictionary APIs
+				  Block 6: Tensorflow session for training the both models
+				  Block 7: Validation with 3-fold split for trained models above
+
+Answers:
+			   1) Sample output with graphs of loss and accuracy analysis wrt. epoch and classwise testing is atathed
+			      GRU performs better around accuracy > 80% in general, exceptioanlly < 70% and > 85%
+				  LSTM performs average way around accuracy 70-80% in general, exceptionally 60-70% and >80%
+			    
+			   2) tanh and softmax performs good for LSTM activation as two tanh activations in LSTM blocks squash
+			      the block input and output and can be considered to have a different role from the three gates.
+				  
+				  tanh and ReLU performs good for GRU activation as it is non-linear and squash variables in better way.
+			   
+			   3) Sampled: Overall accuracy around: 70-80%
+			      Sampled Classwise accuracy of lstm model for 5 labels: [0.684, 0.702, 0.658, 0.894, 0.681]
+			      Sampled Classwise accuracy of gru model for 5 labels: [0.724, 0.722, 0.785, 0.894, 0.405]
+			      
